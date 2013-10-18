@@ -23,8 +23,6 @@ module RockPaperScissors
     def call(env)
       req = Rack::Request.new(env)
 
-      req.env.keys.sort.each { |x| puts "#{x} => #{req.env[x]}" }
-
       # El ordenador tira (al azar)
       computer_throw = @throws.sample
       # El Jugador escoge (por medio de botones)
