@@ -3,6 +3,11 @@ task :default do
   sh "rackup"
 end
 
+desc "Test"
+task :test do
+   sh "ruby test_rock_paper.rb"
+end
+
 desc "Piedra"
 task :rock do
   sh %q{curl -v 'http://localhost:9292?choice=rock'}

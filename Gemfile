@@ -7,4 +7,6 @@ gem "thin"
 group :development, :test do
    gem "pry-debugger"
    gem "rspec"
+   gem "rack-test"
+   gem "test-unit"
 end
