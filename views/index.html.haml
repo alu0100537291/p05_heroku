@@ -1,0 +1,27 @@
+%html{:lang => "en"}
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
+    %title RPS GAME
+    %link{:href => "/public/css/bootstrap.css", :rel => "stylesheet"}
+    %link{:href => "/public/css/bootstrap-responsive.css", :rel => "stylesheet"}
+    %link{:href => "public/css/style.css", :rel => "stylesheet"}
+  %body
+    %center
+      %h3 User:
+      -throws.map do |x|
+        .btn
+          %a{:href=>"/?choice=#{x}"} 
+            "#{x}"
+      %h4 VS
+      %h3 Computer:
+      %h2=computer_throw
+      %h1 Result!
+      - if (anwser == 'TIE')
+        %h4 TIE!
+        %img{:src => 'http://banot.etsii.ull.es/alu4120/sytw1314/p03_haml_css/manos.png', :alt => 'TIE'}
+      - elsif (anwser == 'WIN')
+        %h4 WIN!
+        %img{:src => 'http://banot.etsii.ull.es/alu4120/sytw1314/p03_haml_css/feliz.png', :alt => 'WIN'}
+      - else
+        %h4 LOSE!
+        %img{:src => 'http://banot.etsii.ull.es/alu4120/sytw1314/p03_haml_css/triste.png', :alt => 'LOSE'}
