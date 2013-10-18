@@ -17,7 +17,8 @@ Para la ejecución de los **test unitarios**
 
     rake test
 
- ### Autor
+ 
+  Autor
 -------
 | ALUMNO | CORREO |
 | ---------- | ---------- |
