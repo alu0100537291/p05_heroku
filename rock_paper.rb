@@ -54,5 +54,3 @@ module RockPaperScissors
     end # call
   end   # App
 end     # RockPaperScissors
-  
-

@@ -1,13 +1,10 @@
 source 'https://rubygems.org'
 
-gem "haml"
+gem "haml",
+gem "rack",
+gem "thin",
 
-group :development do
-	gem "rack", "~>1.5.2"
-	gem "pry-debugger", "~> 0.2.2"
-	gem "thin", "~> 1.5.1"
-end
-
-group :test do
+group :development, :test do
+	gem "pry-debugger",
    gem "rspec"
 end
