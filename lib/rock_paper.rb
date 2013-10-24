@@ -13,6 +13,7 @@ module RockPaperScissors
       @app = app
       @content_type = :html
       @defeat = {'rock' => 'scissors', 'paper' => 'rock', 'scissors' => 'paper'}
+      @throws = @defeat.keys
     end
 
     def haml(template, resultado)
@@ -31,12 +32,15 @@ module RockPaperScissors
     end
 
     def won=(value)
-      
+      @session['won'] = value
     end
 
     def lost
-      return @session['lost'].to_i if @session['lost']
-      @session['lost'] = 0
+      if @session['lost'] != 0
+        @session['lost'].to_i
+      else
+        @session['lost'] = 0
+      end
     end
 
     def lost=(value)
@@ -63,20 +67,23 @@ module RockPaperScissors
 
     def call(env)
       set_env(env)
+      player_throw = ''
+      anwser = ''
       req = Rack::Request.new(env)
-      @throws = @defeat.keys
       player_throw = req.GET["choice"]
       computer_throw = @throws.sample
-      self.play= self.play + 1
+      self.play = self.play() + 1
 
       anwser = 
-        if (player_throw == computer_throw && (player_throw != '' && computer_throw != ''))
-          "TIE"
-        elsif computer_throw == @defeat[player_throw]
-          "WIN"
-        else
-          "LOSE"
-        end
+              if (player_throw != nil && computer_throw != nil)
+                if (player_throw == computer_throw)
+                  "TIE"
+                elsif computer_throw == @defeat[player_throw]
+                  "WIN"
+                else
+                  "LOSE"
+                end
+              end
 	
       if anwser == "WIN"
         self.won= self.won + 1
@@ -86,22 +93,22 @@ module RockPaperScissors
         self.tied= self.tied + 1
       end
 
-  # Hash con info
-	resultado = 
-		{
-      :anwser => anwser,
-      :choose => @choose,
-      :throws => @throws,
-      :computer_throw => computer_throw,
-      :player_throw => player_throw,
-      :win => self.won,
-      :playit => self.play,
-      :lose => self.lost,
-      :tie => self.tied,
-    }
+      # Hash con info
+    	resultado = 
+    		{
+          :anwser => anwser,
+          :choose => @choose,
+          :throws => @throws,
+          :computer_throw => computer_throw,
+          :player_throw => player_throw,
+          :win => self.won,
+          :lose => self.lost,
+          :tie => self.tied,
+          :play => self.play
+        }
 
-    res = Rack::Response.new(haml("views/index.html.haml", resultado))
-    res.finish     
+        res = Rack::Response.new(haml("views/index.html.haml", resultado))
+        res.finish     
     end # call
   end   # App
 end     # RockPaperScissors

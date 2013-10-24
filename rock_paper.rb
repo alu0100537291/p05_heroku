@@ -7,8 +7,9 @@ builder = Rack:: Builder.new do
         use Rack::Lint
         use Rack::Session::Cookie,
                 {:key => 'rack.session',
-                :domain => 'rps.com',
-                :secret => 'cookie'}
+                :domain => 'example.com',
+                :secret => 'cookie',
+                :expire_after => 30}
 
         run RockPaperScissors::App.new
 end
@@ -17,5 +18,5 @@ use Rack::Server.start(
         :app => builder,
         :Port => 8080,
         :server => 'thin',
-        :host => 'www.rps.com'
+        :host => 'www.example.com'
         )
