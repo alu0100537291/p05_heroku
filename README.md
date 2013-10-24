@@ -1,4 +1,4 @@
-# SYTW - Práctica 4 (rama `MASTER`)#
+# SYTW - Práctica 4 (rama `RSPEC`)#
 ## Test en Rock, Paper and Scissors ##
 
 ### Guión  
@@ -11,18 +11,11 @@ Para la ejecución de la **práctica**
 
 Luego, en su **navegador**, vaya a:
 
-     http://localhost:8080
+     http://www.example.com:8080
 
-<<<<<<< HEAD
 Para la ejecución de los test con **rspec**
 
     rake rspec
-=======
-Para la ejecución de los **test unitarios**
-
-    rake test
->>>>>>> master
-
  
   Autor
 -------
