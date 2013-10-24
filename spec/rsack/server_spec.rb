@@ -1,4 +1,4 @@
-require 'spec_helper'
+require './spec/spec_helper'
 
 describe Rsack::Server do 
 	def server
@@ -27,10 +27,10 @@ describe Rsack::Server do
 			response.status.should == 200
 		end
 
-		it "Debería ganar" do 
+		it "Jugador: tijeras; Ordenador: papel -> Debería ganar el jugador" do 
 			computer_throw = 'paper'
 			response = server.get("/?choice='scissors'")
-			response.body.include?("PLAYER 1 WIN =)!")
+			response.body.include?("WIN!")
 		end
 
 		it "Debería Perder" do 
