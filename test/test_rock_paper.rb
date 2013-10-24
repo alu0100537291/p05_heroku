@@ -15,4 +15,9 @@ class AppTest < Test::Unit::TestCase
     get "/"
     assert last_response.ok?
   end
+
+  def test_rock
+    get"/?choice='rock'"
+    assert last_response.body.include?("WIN!")
+  end
 end
