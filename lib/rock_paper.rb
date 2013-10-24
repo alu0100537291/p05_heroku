@@ -3,6 +3,8 @@ require 'rack/response'
 require 'haml'
 require 'thin'
 require 'rack'
+
+p "Please visit http://localhost:8080"
   
 module RockPaperScissors
   class App 
