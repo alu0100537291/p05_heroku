@@ -33,16 +33,16 @@ describe Rsack::Server do
 			response.body.include?("WIN!")
 		end
 
-		it "Debería Perder" do 
+		it "Jugador: tijeras; Ordenador: piedra -> Debería perder el jugador" do 
 			computer_throw = 'rock'
 			response = server.get("/?choice='scissors'")
-			response.body.include?("OUCH! PLAYER 2 WIN =(")
+			response.body.include?("LOSE!")
 		end
 
-		it "Debería Empatar" do 
+		it "Jugador: tijeras; Ordenador: tijeras -> Deberían empatar" do 
 			computer_throw = 'scissors'
 			response = server.get("/?choice='scissors'")
-			response.body.include?("TIE")
+			response.body.include?("TIE!")
 		end
 	end
 
@@ -54,22 +54,22 @@ describe Rsack::Server do
 			response.status.should == 200
 		end
 
-		it "Debería ganar" do 
-			computer_throw = 'scissors'
-			response = server.get("/?choice='rock'")
-			response.body.include?("PLAYER 1 WIN =)!")
-		end
-
-		it "Debería Perder" do 
+		it "Jugador: piedra; Ordenador: papel -> Debería perder el jugador" do 
 			computer_throw = 'paper'
-			response = server.get("/?choice='rock'")
-			response.body.include?("OUCH! PLAYER 2 WIN =(")
+			response = server.get("/?choice='scissors'")
+			response.body.include?("LOSE!")
 		end
 
-		it "Debería Empatar" do 
+		it "Jugador: piedra; Ordenador: piedra -> Deberían empatar" do 
 			computer_throw = 'rock'
-			response = server.get("/?choice='rock'")
-			response.body.include?("TIE")
+			response = server.get("/?choice='scissors'")
+			response.body.include?("TIE!")
+		end
+
+		it "Jugador: piedra; Ordenador: tijeras -> Debería ganar el jugador" do 
+			computer_throw = 'scissors'
+			response = server.get("/?choice='scissors'")
+			response.body.include?("WIN!")
 		end
 	end
 
