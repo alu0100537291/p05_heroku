@@ -6,9 +6,16 @@ class AppTest < Test::Unit::TestCase
   include Rack::Test::Methods
 
   def app
-    Rack::Builder.new do
-      run RockPaperScissors::App.new
-    end.to_app
+    Rack::Session::Cookie.new(RockPaperScissors::App.new, :secret => 'cookie')
+  end
+
+  def choice_computer
+    computer_throw = 'paper'
+  end
+
+  def test_win
+    get"/?choice='rock'"
+    assert last_response.body.include?("WIN!")
   end
 
   def test_index
@@ -24,5 +31,10 @@ class AppTest < Test::Unit::TestCase
   def test_header
     get "/"
     last_response.header == 'Content-Type'
+  end
+
+  def test_
+    get"/?choice='rock'"
+    assert last_response.ok?
   end
 end
