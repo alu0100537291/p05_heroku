@@ -1,4 +1,4 @@
-# SYTW - Práctica 4 #
+# SYTW - Práctica 4 (rama `MASTER`)#
 ## Test en Rock, Paper and Scissors ##
 
 ### Guión  
