@@ -80,5 +80,23 @@ describe Rsack::Server do
 			response = server.get("/?choice='paper'")
 			response.status.should == 200
 		end
+
+		it "Jugador: papel; Ordenador: papel -> Deberían empatar" do 
+			computer_throw = 'paper'
+			response = server.get("/?choice='scissors'")
+			response.body.include?("TIE!")
+		end
+
+		it "Jugador: papel; Ordenador: piedra -> Debería ganar el jugador" do 
+			computer_throw = 'rock'
+			response = server.get("/?choice='scissors'")
+			response.body.include?("WIN!")
+		end
+
+		it "Jugador: papel; Ordenador: tijeras -> Debería perder el jugador" do 
+			computer_throw = 'scissors'
+			response = server.get("/?choice='scissors'")
+			response.body.include?("LOSE!")
+		end
 	end
 end
