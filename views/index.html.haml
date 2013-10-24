@@ -8,10 +8,14 @@
   %body
     %center
       %h3 User:
-      -throws.map do |x|
-        .btn
-          %a{:href=>"/?choice=#{x}"} 
-            "#{x}"
+      -if (aux == 'Choose one')
+        -throws.map do |x|
+          .btn
+            %a{:href=>"/?choice=#{x}"} 
+              #{x}
+      .btn
+        %a{:href=>"/"}
+          again
       %h4 VS
       %h3 Computer:
       %h2=computer_throw

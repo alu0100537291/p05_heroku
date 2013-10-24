@@ -36,11 +36,8 @@ module RockPaperScissors
     end
 
     def lost
-      if @session['lost'] != 0
-        @session['lost'].to_i
-      else
-        @session['lost'] = 0
-      end
+      return @session['lost'].to_i if @session['lost']
+      @session['lost'] = 0
     end
 
     def lost=(value)
@@ -72,7 +69,13 @@ module RockPaperScissors
       req = Rack::Request.new(env)
       player_throw = req.GET["choice"]
       computer_throw = @throws.sample
-      self.play = self.play() + 1
+
+      if !@throws.include?(player_throw)
+        aux = "Choose one"
+      else
+        computer_throw = @throws.sample
+        self.play= self.play + 1
+      end
 
       anwser = 
               if (player_throw != nil && computer_throw != nil)
@@ -96,6 +99,7 @@ module RockPaperScissors
       # Hash con info
     	resultado = 
     		{
+          :aux => aux,
           :anwser => anwser,
           :choose => @choose,
           :throws => @throws,
@@ -104,7 +108,7 @@ module RockPaperScissors
           :win => self.won,
           :lose => self.lost,
           :tie => self.tied,
-          :play => self.play
+          :play => self.play,
         }
 
         res = Rack::Response.new(haml("views/index.html.haml", resultado))
