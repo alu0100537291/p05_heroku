@@ -3,7 +3,12 @@ task :default do
   sh "rackup"
 end
 
-desc "RSPEC"
+desc "Ejecutando test con RSPEC"
 task :rspec do
-   sh "rspec spec/rsack/server_spec.rb"
+   sh "rspec --color --format documentation spec/rsack/server_spec.rb"
+end
+
+desc "Ejecutando tests con formato: html"
+task :rspec_html do
+        sh "rspec --format html spec/rsack/server_spec.rb"
 end
