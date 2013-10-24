@@ -18,6 +18,11 @@ class AppTest < Test::Unit::TestCase
 
   def test_rock
     get"/?choice='rock'"
-    assert last_response.body.include?("WIN!")
+    last_response.body.include?("WIN!")
+  end
+
+  def test_header
+    get "/"
+    last_response.header == 'Content-Type'
   end
 end
