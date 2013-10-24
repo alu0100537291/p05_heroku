@@ -1,8 +1,8 @@
-# SYTW - Práctica 4 (rama `MASTER`)#
-## Test en Rock, Paper and Scissors ##
+# SYTW - Práctica 4 (rama `master`)
+## Test unitarios en Rock, Paper and Scissors
 
 ### Guión  
-El guión de esta práctica se encuentra [aquí](https://dl.dropboxusercontent.com/u/14539152/LPP/LPPbook/node375.html)
+El guión de esta práctica se encuentra [aquí](https://dl.dropboxusercontent.com/u/14539152/LPP/LPPbook/node379.html)
 
 ### Ejecución
 Para la ejecución de la **práctica**
@@ -11,14 +11,15 @@ Para la ejecución de la **práctica**
 
 Luego, en su **navegador**, vaya a:
 
-     http://localhost:8080
+     http://www.example.com:8080
 
+### Test unitarios
 Para la ejecución de los **test unitarios**
 
     rake test
 
  
-  Autor
+Autor
 -------
 | ALUMNO | CORREO |
 | ---------- | ---------- |
