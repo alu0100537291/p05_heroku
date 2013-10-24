@@ -1,4 +1,4 @@
-%html{:lang => "en"}
+%html{:lang => "es"}
   %head
     %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
     %title RPS GAME
@@ -8,10 +8,14 @@
   %body
     %center
       %h3 User:
-      -throws.map do |x|
-        .btn
-          %a{:href=>"/?choice=#{x}"} 
-            "#{x}"
+      -if (aux == 'Choose one')
+        -throws.map do |x|
+          .btn
+            %a{:href=>"/?choice=#{x}"} 
+              #{x}
+      .btn
+        %a{:href=>"/"}
+          again
       %h4 VS
       %h3 Computer:
       %h2=computer_throw
@@ -25,3 +29,10 @@
       - else
         %h4 LOSE!
         %img{:src => 'http://banot.etsii.ull.es/alu4120/sytw1314/p03_haml_css/triste.png', :alt => 'LOSE'}
+      %h4 Estadisticas
+      %form
+        %label
+          %input{name: "twin", type: "text", value: "#{win}"}
+          %input{name: "twin", type: "text", value: "#{lose}"}
+          %input{name: "twin", type: "text", value: "#{tie}"}
+          %input{name: "twin", type: "text", value: "#{play}"}

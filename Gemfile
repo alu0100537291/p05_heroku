@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
-gem "haml"
-gem "rack"
-gem "thin"
+group :production do
+	gem "rack"
+	gem "thin"
+	gem "haml"
+	gem "sinatra"
+end
 
-group :development, :test do
-   gem "pry-debugger"
-   gem "rspec"
+group :test do
+	gem 'rack-test'
 end
