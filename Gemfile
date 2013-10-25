@@ -4,9 +4,9 @@ group :production do
 	gem "rack"
 	gem "thin"
 	gem "haml"
-	gem "sinatra"
 end
 
-group :test do
+group :development, :test do
 	gem 'rack-test'
+	gem 'rspec'
 end
