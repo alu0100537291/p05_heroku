@@ -18,6 +18,7 @@ Para la ejecución de los **test unitarios**
 
 ### Rspec
 Para la ejecución de los test con **rspec**
+    rake test
 
 El estado de los test se muestra por la consola
 
