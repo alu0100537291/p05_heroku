@@ -16,9 +16,11 @@ Luego, en su **navegador**, vaya a:
 ### Test unitarios
 Para la ejecución de los **test unitarios**
 
+    rake test
+
 ### Rspec
 Para la ejecución de los test con **rspec**
-    rake test
+
 
 El estado de los test se muestra por la consola
 
