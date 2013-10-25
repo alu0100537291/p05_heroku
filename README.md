@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-# SYTW - Práctica 4 (rama `master`)
-=======
-# SYTW - Práctica 4 (rama `rspec`)
->>>>>>> rspec
-## Test unitarios en Rock, Paper and Scissors
+# SYTW - Práctica 5
+## Deployment to Heroku
 
 ### Guión  
-El guión de esta práctica se encuentra [aquí](https://dl.dropboxusercontent.com/u/14539152/LPP/LPPbook/node379.html)
+El guión de esta práctica se encuentra [aquí](https://dl.dropboxusercontent.com/u/14539152/LPP/LPPbook/node380.html)
 
 ### Ejecución
 Para la ejecución de la **práctica**
@@ -17,14 +13,13 @@ Luego, en su **navegador**, vaya a:
 
      http://www.example.com:8080
 
-<<<<<<< HEAD
 ### Test unitarios
 Para la ejecución de los **test unitarios**
-=======
+
 ### Rspec
 Para la ejecución de los test con **rspec**
+
 El estado de los test se muestra por la consola
->>>>>>> rspec
 
     rake rspec
 
