@@ -1,4 +1,4 @@
-require './lib/RockPaperScissors'
+require './lib/rock_paper'
 
 	use Rack::Static, :urls => ['/public']
 	use Rack::ShowExceptions
