@@ -36,7 +36,7 @@ describe Rsack::Server do
 		it "Jugador: tijeras; Ordenador: piedra -> Debería perder el jugador" do 
 			computer_throw = 'rock'
 			response = server.get("/?choice='scissors'")
-			response.body.include?("LOSE!")
+			response.body.include?("tutu!")
 		end
 
 		it "Jugador: tijeras; Ordenador: tijeras -> Deberían empatar" do 

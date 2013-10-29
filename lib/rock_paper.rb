@@ -4,7 +4,7 @@ require 'haml'
 require 'thin'
 require 'rack'
 
-p "Please visit http://localhost:8080"
+p "Please visit http://www.example.com:8080"
   
 module RockPaperScissors
   class App 
@@ -68,7 +68,6 @@ module RockPaperScissors
       anwser = ''
       req = Rack::Request.new(env)
       player_throw = req.GET["choice"]
-      computer_throw = @throws.sample
 
       if !@throws.include?(player_throw)
         aux = "Choose one"
